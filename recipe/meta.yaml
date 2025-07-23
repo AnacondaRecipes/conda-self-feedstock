@@ -1,16 +1,19 @@
+{% set name = "conda-self" %}
 {% set version = "0.1.1" %}
-{% set python_min = "3.9" %}
+{% set build_number = 0 %}
+{% set sha256 = "79133aa60a43eec1783aeef63abe7df3ac17c1dfed95398bf0de2315b7d735cf" %}
 
 package:
-  name: conda-self
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-incubator/conda-self/archive/{{ version }}.tar.gz
-  sha256: 79133aa60a43eec1783aeef63abe7df3ac17c1dfed95398bf0de2315b7d735cf
+  url: https://github.com/conda-incubator/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: 0
+  skip: True # [py<39]
+  number: {{ build_number }}
   noarch: python
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
@@ -19,17 +22,17 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}.*
+    - python
     - pip
     - hatchling >=1.12.2
     - hatch-vcs >=0.2.0
   run:
-    - python >={{ python_min }}
+    - python
     - conda >=23.9.0
 
 test:
   requires:
-    - python {{ python_min }}.*
+    - python
   imports:
     - conda_self
   commands:
