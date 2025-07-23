@@ -14,7 +14,6 @@ source:
 build:
   skip: True # [py<39]
   number: {{ build_number }}
-  noarch: python
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script:
@@ -33,17 +32,23 @@ requirements:
 test:
   requires:
     - python
+    - pip
   imports:
     - conda_self
   commands:
+    - pip check
     - conda self --help
+
 
 about:
   home: https://github.com/conda-incubator/conda-self
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: A `self` command for conda
   dev_url: https://github.com/conda-incubator/conda-self
+  summary: A conda self command to manage your base environment safely.
+  description: A conda self command to manage your base environment safely.
 
 extra:
   recipe-maintainers:
