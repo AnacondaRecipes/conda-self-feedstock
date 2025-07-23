@@ -1,17 +1,19 @@
+{% set name = "conda-self" %}
 {% set version = "0.1.1" %}
-{% set python_min = "3.9" %}
+{% set build_number = 0 %}
+{% set sha256 = "79133aa60a43eec1783aeef63abe7df3ac17c1dfed95398bf0de2315b7d735cf" %}
 
 package:
-  name: conda-self
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-incubator/conda-self/archive/{{ version }}.tar.gz
-  sha256: 79133aa60a43eec1783aeef63abe7df3ac17c1dfed95398bf0de2315b7d735cf
+  url: https://github.com/conda-incubator/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: 0
-  noarch: python
+  skip: True # [py<39]
+  number: {{ build_number }}
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script:
@@ -19,28 +21,35 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}.*
+    - python
     - pip
     - hatchling >=1.12.2
     - hatch-vcs >=0.2.0
   run:
-    - python >={{ python_min }}
+    - python
     - conda >=23.9.0
 
 test:
   requires:
-    - python {{ python_min }}.*
+    - python
+    - pip
   imports:
     - conda_self
   commands:
-    - conda self --help
+    - pip check
+    - python -m conda self --help
+
 
 about:
   home: https://github.com/conda-incubator/conda-self
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: A `self` command for conda
   dev_url: https://github.com/conda-incubator/conda-self
+  doc_url: https://conda-incubator.github.io/conda-self/
+  summary: A conda self command to manage your base environment safely.
+  description: A conda self command to manage your base environment safely.
 
 extra:
   recipe-maintainers:
