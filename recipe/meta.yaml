@@ -37,7 +37,7 @@ test:
     - conda_self
   commands:
     - pip check
-    - conda self --help
+    - python -m conda self --help
 
 
 about:
