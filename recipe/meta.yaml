@@ -1,6 +1,6 @@
 {% set name = "conda-self" %}
 {% set version = "0.1.1" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 {% set sha256 = "79133aa60a43eec1783aeef63abe7df3ac17c1dfed95398bf0de2315b7d735cf" %}
 
 package:
