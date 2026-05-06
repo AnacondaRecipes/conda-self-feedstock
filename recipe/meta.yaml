@@ -1,7 +1,7 @@
 {% set name = "conda-self" %}
-{% set version = "0.1.1" %}
-{% set build_number = 1 %}
-{% set sha256 = "79133aa60a43eec1783aeef63abe7df3ac17c1dfed95398bf0de2315b7d735cf" %}
+{% set version = "0.2.0" %}
+{% set build_number = 0 %}
+{% set sha256 = "684f080fbc9a6973c08a0deb96f3814cfe31517305e00ee989e4c39de37318ed" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  skip: True # [py<39]
+  skip: True # [py<310]
   number: {{ build_number }}
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
@@ -27,7 +27,7 @@ requirements:
     - hatch-vcs >=0.2.0
   run:
     - python
-    - conda >=23.9.0
+    - conda >=26.1.1
 
 test:
   requires:
