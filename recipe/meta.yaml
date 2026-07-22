@@ -1,7 +1,7 @@
 {% set name = "conda-self" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 {% set build_number = 0 %}
-{% set sha256 = "684f080fbc9a6973c08a0deb96f3814cfe31517305e00ee989e4c39de37318ed" %}
+{% set sha256 = "519e5e17505e8022a7a3c1d5de3b57a1780c29e80c2c0b203a16d8820725bc35" %}
 
 package:
   name: {{ name }}
