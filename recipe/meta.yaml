@@ -1,14 +1,14 @@
 {% set name = "conda-self" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 {% set build_number = 0 %}
-{% set sha256 = "519e5e17505e8022a7a3c1d5de3b57a1780c29e80c2c0b203a16d8820725bc35" %}
+{% set sha256 = "59ac0446537c94fc16177007ee4593dbd713e04432ca4a191badb799dfb26068" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-incubator/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/conda/{{ name }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -41,13 +41,12 @@ test:
 
 
 about:
-  home: https://github.com/conda-incubator/conda-self
+  home: https://github.com/conda/conda-self
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: A `self` command for conda
-  dev_url: https://github.com/conda-incubator/conda-self
-  doc_url: https://conda-incubator.github.io/conda-self/
+  dev_url: https://github.com/conda/conda-self
+  doc_url: https://conda.github.io/conda-self/
   summary: A conda self command to manage your base environment safely.
   description: A conda self command to manage your base environment safely.
 
